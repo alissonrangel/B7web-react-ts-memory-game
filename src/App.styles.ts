@@ -35,11 +35,11 @@ export const GridArea = styled.div`
 export const Grid = styled.div`
   width: 430px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  @media (max-width: 700px) {
+  /* @media (max-width: 700px) {
     grid-template-columns: repeat(3, 1fr);
-  }
+  } */
 `
 
 export const LogoLink = styled.a`

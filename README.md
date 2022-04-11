@@ -3,7 +3,7 @@
 
 # Base project GitHub [Original GitHub](https://github.com/suporteb7web/react-memoria)
 
-# Web site game [Memory Game](https://the-thinker-memory-game.netlify.app/)
+# Game Web Site [Link to the Memory Game](https://the-thinker-memory-game.netlify.app/)
 
 # Additions to the project
 - [x] new game layout
