@@ -7,20 +7,25 @@ import { items } from '../../data/items';
 type Props = {
   item: GridItemType;
   onClick: () => void;
+  hoverBackground: string;
+  //isPlayerOne: boolean;
 }
-export const GridItem = ({item, onClick}: Props) => {
+export const GridItem = ({item, onClick, hoverBackground}: Props) => {
 
   return (
     <C.Container
       onClick={onClick}
+      // isPlayerOne={isPlayerOne}
       showBackground={item.permanentShown || item.shown}
+      background={ item.permanentShown ? item.background : hoverBackground }
+      //hoverBackground={hoverBackground}
     >      
       { !item.permanentShown && !item.shown &&
         <C.Icon src={base} alt="Base icon"/>
       }
       {
         (item.permanentShown || item.shown) && item.item !== null &&
-        <C.Icon2 src={ items[item.item].icon} alt="Game Icon"/>
+        <C.Icon2 src={ items[item.item].icon} alt="Game Icon"/>      
       }
     </C.Container>
   )

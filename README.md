@@ -10,11 +10,12 @@
 - [x] new logo
 - [x] image background
 - [x] new items added to the game
-- [ ] two player game
+- [x] two players game
 - [ ] sound effects
 
 # colors
 - yellow: #FFCB4C
+- yellow2: #F5E210
 - orange: #F19020
 
 # extra libs

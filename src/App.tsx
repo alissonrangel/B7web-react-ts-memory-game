@@ -19,6 +19,9 @@ function App() {
   const [shownCount, setShownCount] = useState<number>(0);
   const [gridItems, setGridItems] = useState<GridItemType[]>([]);
 
+  const [isPlayerOne, setIsPlayerOne] = useState<boolean>(false);
+  const [isPlayerTwo, setIsPlayerTwo] = useState<boolean>(true);
+
   useEffect(() => {
     resetAndCreateGrid();
   }, [])
@@ -44,7 +47,12 @@ function App() {
           for (const i in tmpGrid) {
             if (tmpGrid[i].shown === true) {
               tmpGrid[i].permanentShown = true;
-              tmpGrid[i].shown = false;
+              tmpGrid[i].shown = false; 
+              if ( isPlayerOne ) {
+                tmpGrid[i].background = '#F19020'
+              } else {
+                tmpGrid[i].background = '#F5E210'
+              }             
             }
           } 
           setGridItems(tmpGrid);     
@@ -57,7 +65,14 @@ function App() {
               }            
             }
             setGridItems(tmpGrid);     
-            setShownCount(0);            
+            setShownCount(0);
+            if ( isPlayerOne ) {
+              setIsPlayerOne(false);
+              setIsPlayerTwo(true);              
+            } else {
+              setIsPlayerOne(true);
+              setIsPlayerTwo(false);              
+            }            
           }, 1000);
         }                        
         setMoveCount(moveCount + 1);
@@ -75,13 +90,16 @@ function App() {
     setTimeElapsed(0);    
     setMoveCount(0);
     setShownCount(0);
+    setIsPlayerOne(true);
+    setIsPlayerTwo(false);
     
     let tmpGrid: GridItemType[] = [];
     for (let i = 0; i < (items.length * 2); i++) {
       tmpGrid.push({
         item: null,
         shown: false,
-        permanentShown: false
+        permanentShown: false,
+        background: '#e2e3e3'
       });
     }
 
@@ -134,6 +152,8 @@ function App() {
               <GridItem 
                 key={index}
                 item={item}
+                //isPlayerOne={isPlayerOne}
+                hoverBackground={ isPlayerOne ? '#F19020': '#F5E210'}
                 onClick={() => handleItemClick(index) }
               />
             )
